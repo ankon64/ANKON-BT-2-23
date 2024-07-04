@@ -1,0 +1,79 @@
+%%  CSNthesis.sty
+%
+% [2022/12/09 v1.0 CSN thesis style]  by Kento Emoto
+%
+\newcommand{\StudentName}{学生の氏名}
+\newcommand{\StudentIDno}{00000000}
+\newcommand{\SupervisorName}{指導教官の氏名}
+\newcommand{\ThesisTitle}{卒業論文の題目}
+\newcommand{\YearofGrad}{2022}
+\newcommand{\CourseName}{所属コース名}
+%
+\newcommand{\Name}[1]{\renewcommand{\StudentName}{#1}}
+\newcommand{\IDno}[1]{\renewcommand{\StudentIDno}{#1}}
+\newcommand{\Supervisor}[1]{\renewcommand{\SupervisorName}{#1}}
+\newcommand{\Title}[1]{\renewcommand{\ThesisTitle}{#1}}
+\newcommand{\Year}[1]{\renewcommand{\YearofGrad}{#1}}
+\newcommand{\Course}[1]{\renewcommand{\CourseName}{#1}}
+%
+% タイトルページ
+%
+\pagestyle{empty}
+\newcommand{\makeCoverPage}{%
+  \vspace*{20mm}
+  \begin{center}
+    {\LARGE 卒~~業~~論~~文}
+  \end{center}
+   \vspace{15mm}
+   \parbox[c]{145.0mm}
+          {\begin{center}%
+              \mbox{{\LARGE\shortstack{\ThesisTitle}}}% 論文題目
+          \end{center}}
+   \vspace{40mm}
+   \begin{center}
+   {\Large 九州工業大学　情報工学部
+   \\ \vspace{3mm}
+   情報・通信工学科}
+   \end{center}
+   \vspace{15mm}
+   \begin{center}
+   {\Large \StudentName}
+   \end{center}
+ \vspace{25mm}
+   \begin{center}
+   {\Large \YearofGrad 年度}
+   \end{center}
+ \vspace{10mm}
+  \begin{center}
+  {\Large 指導教員：\SupervisorName}
+  \end{center}
+}
+%
+%
+% ページレイアウト
+%
+%\setlength{\voffset}{-15mm}
+\setlength{\textheight}{220mm}
+\setlength{\textwidth}{150mm}
+\setlength{\oddsidemargin}{10mm}
+\setlength{\baselineskip}{8mm}
+\setlength{\topmargin}{6mm}
+\setlength{\headheight}{0mm}
+\setlength{\headsep}{0mm}
+\setlength{\footskip}{20mm}
+%
+% キャプションの変更
+%
+\long\def\@makecaption#1#2{
+ \vskip 10pt 
+ \setbox\@tempboxa\hbox{#1 #2}
+ \ifdim \wd\@tempboxa >\hsize #1 #2\par \else \hbox
+to\hsize{\hfil\box\@tempboxa\hfil} 
+ \fi}
+%
+%
+% 「参考文献」
+\renewcommand{\bibname}{参考文献}
+%
+%
+%% end of CSNthesis.sty

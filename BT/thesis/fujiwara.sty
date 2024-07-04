@@ -1,0 +1,42 @@
+%%%%
+%
+% fujiwara.sty: LaTeX style file for thesis in Fujiwara lab.
+%       藤原研謹製 卒論，修論，博論，課題研究報告向けLaTeXスタイルファイル
+%
+%       This file is based on naist-mthesis.sty file.
+%       2002/02/04      Version 1.0.0 available.
+%       2002/02/05      Version 1.0.1 available. 英語記述部の訂正. 
+%       2002/02/05      Version 1.2.0 available. jLaTeXでコンパイルが通らない不具合を修正.
+%       2002/02/11      Version 1.2.1 available. 概要内で\baselineskipを変更しても
+%                                                本文に影響しないように修正.
+%
+%%%% 利用者が定義すべきマクロ（内部変数）
+%
+% \doctype              % 論文種別
+% \title                % 題目（日本語）
+% \etitle               % 題目（英語）
+% \author               % 著者（日本語）
+% \eauthor              % 著者（英語）
+% \studentnumber        % 学籍番号
+% \setyear, \setmonth, \setday  % 論文提出年月日
+% \supervisors          % 指導教官（日本語）
+% \esupervisors         % 指導教官（英語）
+%
+% \abstract             % 概要（日本語）
+% \eabstract            % 概要（英語）
+% \keywords             % キーワード（日本語）
+% \ekeywords            % キーワード（英語）
+%
+%
+%%%% 利用者が使用するマクロ（コマンド）
+%
+% \titlepage            % タイトルページの出力
+% \firstabstract        % 概要（日本語）の出力
+% \secondabstract       % 概要（英語）の出力．英語の概要が無い場合は使用しなくて良い．
+%
+%
+%%%% マクロ定義
+%
+\input fuji-ttl.sty
+\input fuji-abs.sty
+%EOF

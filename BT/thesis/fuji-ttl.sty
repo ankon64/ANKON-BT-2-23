@@ -1,0 +1,162 @@
+%%%%
+%
+% fuji-ttl.sty: title page of thesis - LaTeX style file in Fujiwara lab.
+%	卒論，修論，博論，課題研究報告向けタイトルページ用スタイルファイル
+%
+% 	This file is based on naist-mthesis.sty file.
+% 	2002/02/04	Version 1.0.0 available.
+%
+%%%% マクロ定義
+%
+%%%% 学籍番号
+\def\studentnumberstr{\tt error. $\backslash$studentnumberを定義して下さい．}
+\newcommand{\studentnumber}[1]{
+	\def\studentnumberstr{#1}
+}
+
+
+%%%% 所属
+\newcommand{\department}[1]{
+	\def\departmentstr{#1}
+	\def\college{1}
+	\def\graduate{2}
+	\def\jdepartmentstr{\ifcase\departmentstr\or{九州工業大学~情報工学部~電子情報工学科}\or{九州工業大学~大学院~情報工学府~情報システム専攻}\fi}
+	\def\edepartmentstr{\ifcase\departmentstr\or{Department of Computer Science and Electronics, Faculty of Computer Science and Systems Engineering, Kyushu Institute of Technology}\or{Department of Information Systems, Graduate School of Computer Science and Systems Engineering, Kyushu Institute of Technology}\fi}
+}
+%%%% 所属が定義されていない（＝論文種別が定義されていない）場合のエラーメッセージ
+\def\jdepartmentstr{\tt error.~$\backslash$doctypeが定義されていないので，所属が出力できません．}
+\def\edepartmentstr{\tt error. Since $\backslash$doctype is undefined, cannot output $\backslash$departmentstr statement．}
+
+
+%%%% 論文種別
+\newcommand{\doctype}[1]{
+	\def\doctypestr{#1}
+	\def\bachelorsthesis{1}
+	\def\mastersthesis{2}
+	\def\doctorsthesis{3}
+	\def\researchreport{4}
+	\def\jdoctype{\ifcase\doctypestr\or{卒業論文}\or{修士論文}\or{博士論文}\or{課題研究報告}\fi}
+	\def\edoctype{\ifcase\doctypestr\or{Bachelor's Thesis}\or{Master's Thesis}\or{Doctor's Thesis}\or{Research Report}\fi}
+%	\def\edoctypeacronym{\ifcase\doctypestr\or{BT}\or{MT}\or{DT}\or{RR}\fi}
+%
+%% 所属の定義
+%% 論文種別によって所属を決定する
+	\ifcase\doctypestr
+		\or\department{\college}
+		\or\department{\graduate}
+		\or\department{\graduate}
+		\or\department{\graduate}
+	\fi
+}
+%%%% 論文種別を定義し忘れた場合のエラーメッセージ
+\def\jdoctype{\tt error.~$\backslash$doctypeを定義して下さい．}
+\def\edoctype{\tt error. Since $\backslash$doctype is undefined, cannot output $\backslash$edoctype statement．}
+
+
+%%%% 論文題目
+\def\titlestr{\tt error.~$\backslash$titleを定義して下さい．}
+\renewcommand{\title}[1]{
+	\def\titlestr{#1}
+}
+%
+\def\etitlestr{\tt error.~You must define $\backslash$title macro.}
+\newcommand{\etitle}[1]{
+	\def\etitlestr{#1}
+}
+
+
+%%%% 著者
+\def\authorstr{\tt error.~$\backslash$authorを定義して下さい．}
+\renewcommand{\author}[1]{
+	\def\authorstr{#1}
+}
+%
+\def\eauthorstr{\tt error.~You must define $\backslash$author macro.}
+\newcommand{\eauthor}[1]{
+	\def\eauthorstr{#1}
+}
+
+
+%%%% 年月日
+\def\syearstr{\tt error.~$\backslash$yearを定義して下さい．}
+\newcommand{\setyear}[1]{
+ \def\syearstr{#1}
+}
+%
+\def\smonthstr{\tt error.~$\backslash$monthを定義して下さい．}
+\newcommand{\setmonth}[1]{
+ \def\smonthstr{#1}
+}
+%
+\def\sdaystr{\tt error.~$\backslash$dayを定義して下さい．}
+\newcommand{\setday}[1]{
+ \def\sdaystr{#1}
+}
+%
+\def\datestr{\syearstr\,年\hspace{.3em}\nobreak%
+\smonthstr\,月\hspace{.3em}\nobreak\sdaystr\,日}
+%
+\def\edatestr{
+\ifcase\smonthstr\or
+ January\or February\or March\or April\or May\or June\or
+ July\or August\or September\or October\or November\or December\fi
+ \space\sdaystr, \syearstr}
+
+
+%%%% 指導教員
+\def\firstsupervisor{\tt error.~$\backslash$supervisorsを定義して下さい．}
+\def\secondsupervisor{\tt error.~$\backslash$supervisorsの第2引数の中身を空に定義して下さい．}
+\def\thirdsupervisor{\tt error.~$\backslash$supervisorsの第3引数の中身を空に定義して下さい．}
+\newcommand{\supervisors}[3]{
+	\def\firstsupervisor{#1}
+	\def\secondsupervisor{#2}
+	\def\thirdsupervisor{#3}
+}
+%
+\def\efirstsupervisor{\tt error.~You must define $\backslash$esupervisors macro.}
+\def\esecondsupervisor{\tt error.~$\backslash$esupervisorsの第2引数の中身を空に定義して下さい．}
+\def\ethirdsupervisor{\tt error.~$\backslash$esupervisorsの第3引数の中身を空に定義して下さい．}
+\newcommand{\esupervisors}[3]{
+	\def\efirstsupervisor{#1}
+	\def\esecondsupervisor{#2}
+	\def\ethirdsupervisor{#3}
+}
+
+
+%%%% タイトルページの出力
+\renewcommand{\titlepage}{
+	\newpage
+	\thispagestyle{empty}
+		\begin{center}
+			\Large\bf\jdoctype
+		\end{center}
+		\vspace*{10mm}
+		\begin{center}
+			\large 題~~~~~目
+		\end{center}
+		\begin{center}
+			\Large\bf\titlestr
+		\end{center}
+		\vspace*{34mm}
+		\begin{center}
+			\large 指導教員 \\
+			\Large\firstsupervisor \\
+			\Large\secondsupervisor \\
+			\Large\thirdsupervisor
+		\end{center}
+		\begin{center}
+			\large 報告者 \\
+			\Large\authorstr \\
+			\large{}（\studentnumberstr{}）~
+		\end{center}
+		\vspace*{22mm}
+		\begin{center}
+			\large\datestr
+		\end{center}
+		\vspace*{4mm}
+		\begin{center}
+			\large \jdepartmentstr
+		\end{center}
+		\vspace*{\fill}
+}
+%EOF

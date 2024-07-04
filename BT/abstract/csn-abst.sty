@@ -1,0 +1,283 @@
+\typeout{`CSN abstract' style <16 Nov 2022>.}
+
+% TODO: add an option to select the driver
+\usepackage[driver=dvipdfm, truedimen, margin=13truemm]{geometry}
+\columnsep 6truemm
+
+\skip\footins 9pt plus 4pt minus 2pt
+\floatsep 12pt plus 2pt minus 2pt \textfloatsep 20pt plus 2pt minus 4pt
+\intextsep 12pt plus 2pt minus 2pt \dblfloatsep 12pt plus 2pt
+minus 2pt \dbltextfloatsep 20pt plus 2pt minus 4pt
+\@fptop 0pt plus 1fil \@fpsep 8pt plus 2fil \@fpbot 0pt plus 1fil
+\@dblfptop 0pt plus 1fil \@dblfpsep 8pt plus 2fil \@dblfpbot 0pt plus 1fil
+\marginparpush 5pt
+
+\parskip 0pt plus 1pt  \partopsep 2pt plus 1pt minus 1pt
+\@lowpenalty 51 \@medpenalty 151 \@highpenalty 301
+\@beginparpenalty -\@lowpenalty \@endparpenalty -\@lowpenalty \@itempenalty
+-\@lowpenalty
+
+\def\section{\@startsection
+  {section}
+  {1}
+  {\z@}
+  {0.4ex plus .3ex minus .3ex}
+  {0.2ex plus 0.1ex}
+  {\large\bfseries}}
+\def\subsection{\@startsection
+  {subsection}
+  {2}
+  {\z@}
+  {0.3ex plus .2ex minus .2ex}
+  {0.1ex plus 0.0ex}
+  {\normalsize\bfseries}}
+\def\subsubsection{\@startsection
+  {subsubsection}
+  {3}
+  {\z@}
+  {.2ex plus .1ex minus .1ex}
+  {.0ex plus .0ex}
+  {\normalsize\bfseries}}
+\def\paragraph{\@startsection
+  {paragraph}
+  {4}
+  {\z@}
+  {.2ex plus .1ex minus .1ex}
+  {-.1em}
+  {\tiny\bfseries}}
+\def\subparagraph{\@startsection
+  {subparagraph}
+  {4}
+  {\parindent}
+  {.2ex plus .1ex minus .1ex}
+  {-.1em}
+  {\normalsize\bfseries}}
+
+\setcounter{secnumdepth}{3}
+
+\def\appendix{\par
+ \setcounter{section}{0}
+ \setcounter{subsection}{0}
+ \def\thesection{\Alph{section}}}
+
+\leftmargini 25pt
+\leftmarginii 22pt \leftmarginiii 18.7pt \leftmarginiv 17pt \leftmarginv 10pt
+\leftmarginvi 10pt
+\leftmargin\leftmargini
+\labelwidth\leftmargini\advance\labelwidth-\labelsep
+\labelsep 5pt
+
+\def\@listI{\leftmargin\leftmargini \parsep 4pt plus 2pt minus 1pt\topsep 8pt
+plus 2pt minus 4pt\itemsep 4pt plus 2pt minus 1pt}
+\let\@listi\@listI
+\@listi
+\def\@listii{\leftmargin\leftmarginii
+ \labelwidth\leftmarginii\advance\labelwidth-\labelsep
+ \topsep 4pt plus 2pt minus 1pt
+ \parsep 2pt plus 1pt minus 1pt
+ \itemsep \parsep}
+\def\@listiii{\leftmargin\leftmarginiii
+ \labelwidth\leftmarginiii\advance\labelwidth-\labelsep
+ \topsep 2pt plus 1pt minus 1pt
+ \parsep \z@ \partopsep 1pt plus 0pt minus 1pt
+ \itemsep \topsep}
+\def\@listiv{\leftmargin\leftmarginiv
+ \labelwidth\leftmarginiv\advance\labelwidth-\labelsep}
+\def\@listv{\leftmargin\leftmarginv
+ \labelwidth\leftmarginv\advance\labelwidth-\labelsep}
+\def\@listvi{\leftmargin\leftmarginvi
+ \labelwidth\leftmarginvi\advance\labelwidth-\labelsep}
+
+\def\labelenumi{\theenumi.}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumii{(\theenumii)}
+\def\theenumii{\alph{enumii}}
+\def\p@enumii{\theenumi}
+\def\labelenumiii{\theenumiii.}
+\def\theenumiii{\roman{enumiii}}
+\def\p@enumiii{\theenumi(\theenumii)}
+\def\labelenumiv{\theenumiv.}
+\def\theenumiv{\Alph{enumiv}}
+\def\p@enumiv{\p@enumiii\theenumiii}
+
+\def\labelitemi{$\bullet$}
+\def\labelitemii{\bf --}
+\def\labelitemiii{$\ast$}
+\def\labelitemiv{$\cdot$}
+
+\def\verse{\let\\=\@centercr
+ \list{}{\itemsep\z@ \itemindent -1.5em\listparindent \itemindent
+ \rightmargin\leftmargin\advance\leftmargin 1.5em}\item[]}
+\let\endverse\endlist
+\def\quotation{\list{}{\listparindent 1.5em
+ \itemindent\listparindent
+ \rightmargin\leftmargin \parsep 0pt plus 1pt}\item[]}
+\let\endquotation=\endlist
+\def\quote{\list{}{\rightmargin\leftmargin}\item[]}
+\let\endquote=\endlist
+
+\def\descriptionlabel#1{\hspace\labelsep \bf #1}
+\def\description{\list{}{\labelwidth\z@ \itemindent-\leftmargin
+ \let\makelabel\descriptionlabel}}
+\let\enddescription\endlist
+
+\def\theequation{\arabic{equation}}
+
+\def\titlepage{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+ \else \newpage \fi \thispagestyle{empty}\c@page\z@}
+\def\endtitlepage{\if@restonecol\twocolumn \else \newpage \fi}
+
+\arraycolsep 5pt \tabcolsep 6pt \arrayrulewidth .4pt \doublerulesep 2pt
+\tabbingsep \labelsep
+
+\skip\@mpfootins = \skip\footins
+\fboxsep = 3pt \fboxrule = .4pt
+
+\setcounter{section}{0}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+
+\def\thepart{\Roman{part}} \def\thesection {\arabic{section}}
+\def\thesubsection {\thesection.\arabic{subsection}}
+\def\thesubsubsection {\thesubsection .\arabic{subsubsection}}
+\def\theparagraph {\thesubsubsection.\arabic{paragraph}}
+\def\thesubparagraph {\theparagraph.\arabic{subparagraph}}
+
+\def\@pnumwidth{1.55em}
+\def\@tocrmarg {2.55em}
+\def\@dotsep{4.5}
+\setcounter{tocdepth}{3}
+
+\def\thebibliography#1{\section*{参考文献\markboth
+ {参 考 文 献}{参 考 文 献}}\list
+ {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \usecounter{enumi}}
+ \def\newblock{\hskip .11em plus .33em minus .07em}
+ \sloppy
+ \sfcode`\.=1000\relax}
+\let\endthebibliography=\endlist
+
+\def\footnoterule{\kern-3\p@
+ \hrule width .4\columnwidth
+ \kern 2.6\p@}
+
+\long\def\@makefntext#1{\parindent 1em\noindent
+ \hbox to 1.8em{\hss$^{\@thefnmark}$}#1}
+
+\setcounter{topnumber}{2}
+\def\topfraction{.7}
+\setcounter{bottomnumber}{1}
+\def\bottomfraction{.3}
+\setcounter{totalnumber}{3}
+\def\textfraction{.2}
+\def\floatpagefraction{.5}
+\setcounter{dbltopnumber}{2}
+\def\dbltopfraction{.7}
+\def\dblfloatpagefraction{.5}
+
+\long\def\@makecaption#1#2{
+ \vskip 3pt
+ \setbox\@tempboxa\hbox{#1: #2}
+ \ifdim \wd\@tempboxa >\hsize \unhbox\@tempboxa\par \else \hbox
+ to\hsize{\hfil\box\@tempboxa\hfil}
+\fi}
+
+%\newcounter{figure}
+\setcounter{figure}{0}
+\def\thefigure{\@arabic\c@figure}
+\def\fps@figure{tbp}
+\def\ftype@figure{1}
+\def\ext@figure{lof}
+\def\fnum@figure{図 \thefigure}
+\def\figure{\@float{figure}}
+\let\endfigure\end@float
+\@namedef{figure*}{\@dblfloat{figure}}
+\@namedef{endfigure*}{\end@dblfloat}
+
+%\newcounter{table}
+\setcounter{table}{1}
+\def\thetable{\@arabic\c@table}
+\def\fps@table{tbp}
+\def\ftype@table{2}
+\def\ext@table{lot}
+\def\fnum@table{表 \thetable}
+\def\table{\@float{table}}
+\let\endtable\end@float
+\@namedef{table*}{\@dblfloat{table}}
+\@namedef{endtable*}{\end@dblfloat}
+
+\mark{{}{}}
+
+\ps@plain \pagenumbering{arabic} \onecolumn \if@twoside\else\raggedbottom\fi
+
+\def\studentnumber{\def\@studentnumber##1} % 学生番号
+\def\course{\def\@course##1}               % コース名
+\def\supervisor{\def\@supervisor##1}       % 指導教員氏名
+\def\year{\def\@year##1}       % 年度
+
+\newcommand{\CenterRow}[2]{
+  \dimen0=\ht\strutbox%
+  \advance\dimen0\dp\strutbox%
+  \multiply\dimen0 by#1%
+  \divide\dimen0 by2%
+  \advance\dimen0 by-.5\normalbaselineskip%
+  \raisebox{-\dimen0}[0pt][0pt]{#2}}
+
+\def\maketitle{
+  \begingroup
+  \def\thefootnote{\fnsymbol{footnote}}
+  \let\footnotesize\small \let\footnoterule\relax
+  \def\@makefnmark{\hbox to 0pt{$^{\@thefnmark}$\hss}}
+ \if@twocolumn
+ \twocolumn[\@maketitle]
+ \else \newpage
+ \global\@topnum\z@ \@maketitle \fi\@thanks
+ \endgroup
+ \setcounter{footnote}{0}
+ \let\maketitle\relax
+ \let\@maketitle\relax
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\maketitle\relax
+}
+%
+\def\@maketitle{
+  \centering
+  \begingroup \renewcommand{\arraystretch}{1.2}
+  \centering
+  \begin{tabular}{@{}c@{}c@{}c@{}c@{}}
+    \multicolumn{4}{c}{~九州工業大学 情報工学部 情報・通信工学科 \@year{} 年度 卒業論文 概要} \\
+    \hline
+    \multicolumn{1}{|@{}p{25truemm}@{}}{\centering コース} &
+    \multicolumn{1}{|@{}p{65truemm}@{}}{\centering \large \@course} &
+    \multicolumn{1}{|@{}p{25truemm}@{}}{\centering 指導教員} &
+    \multicolumn{1}{|@{}p{65truemm}@{}|}{\centering \large \@supervisor} \\
+    \hline
+    %
+    \multicolumn{1}{|@{}p{25truemm}@{}}{\centering 学生番号} &
+    \multicolumn{1}{|@{}p{65truemm}@{}}{\centering \large \@studentnumber} &
+    \multicolumn{1}{|@{}p{25truemm}@{}}{\centering 氏　　名} &
+    \multicolumn{1}{|@{}p{65truemm}@{}|}{\centering \large \@author} \\
+    \hline
+    %
+    % two lines -> the cell height is increased by \baselineskip * \arraystretch.
+    % So, slide it by -.6\baselineskip
+    \multicolumn{1}{|@{}p{25truemm}@{}}{\centering \raisebox{-.6\baselineskip}[0pt][0pt]{論文題目}} &
+    \multicolumn{3}{|@{}p{155truemm}@{}|}{ \raisebox{-.6\baselineskip}[0pt][0pt]{{\parbox[c]{153truemm}{\centering \large \@title}}}} \\
+    \multicolumn{1}{|@{}c@{}|}{}&\multicolumn{3}{|@{}c@{}|}{}\\
+    %\multicolumn{3}{|p{135truemm}|}{\centering \rule[-\dp\strutbox]{1pt}{\dimexpr \ht\strutbox + \dp\strutbox}}\\
+    %\multicolumn{1}{|c|}{}&\multicolumn{3}{|c|}{\centering \rule[-\dp\strutbox]{1pt}{\dimexpr \ht\strutbox + \dp\strutbox}}\\
+    \hline\\
+  \end{tabular}
+  \endgroup
+  \setcounter{table}{0}
+  \setcounter{footnote}{0} \let\thanks\relax
+}
+
+\thispagestyle{plain}
+\renewcommand{\thepage}{}%B-4}
+\def\@twoc{}
+\twocolumn
+\sloppy
+\flushbottom

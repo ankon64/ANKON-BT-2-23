@@ -1,0 +1,116 @@
+%%%%
+%
+% fuji-abs.sty: abstract of thesis - LaTeX style file in Fujiwara lab.
+%       卒論，修論，博論，課題研究報告向け概要作成用スタイルファイル
+%
+%       This file is based on naist-mthesis.sty file.
+%       2002/02/04      Version 1.0.0 available.
+%
+%%%% マクロ定義
+%
+%%%% キーワード（日本語、英語）
+\def\keywordsstr{\tt error.~$\backslash$keywordsを定義して下さい, キーワード, ...}
+\newcommand{\keywords}[1]{
+        \def\keywordsstr{#1}
+}
+%
+\def\ekeywordsstr{\tt error.~You must define $\backslash$ekeywords macro, keyword, ...}
+\newcommand{\ekeywords}[1]{
+        \def\ekeywordsstr{#1}
+}
+
+
+%%%% 概要（日本語、英語）
+\def\abstracttext{\tt error.~$\backslash$abstractを定義して下さい．}
+\renewcommand{\abstract}[1]{
+        \def\abstracttext{#1}
+}
+%
+\def\eabstracttext{\tt error.~You must define $\backslash$eabstract macro.}
+\newcommand{\eabstract}[1]{
+        \def\eabstracttext{#1}
+}
+
+
+%%%% 概要の出力
+\newcommand{\jabstractpage}{
+        \begin{center}
+                \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+                \Large\bf \titlestr\footnote[1]
+                        {\jdepartmentstr~\jdoctype{}，\datestr{}．}
+                \renewcommand{\thefootnote}{\arabic{footnote}}
+        \end{center}
+        \vspace*{1mm}
+        \begin{center}
+                \large\authorstr
+        \end{center}
+        \vspace*{10mm}
+        \begin{center}
+        {\bf 概要}
+        \end{center}
+        \vspace*{2mm}
+        \par
+        \abstracttext
+%       \vspace*{5mm}
+        \vfill
+        \begin{flushleft}
+                {\bf キーワード}
+        \end{flushleft}
+        \keywordsstr
+}
+%
+\newcommand{\eabstractpage}{
+        \begin{center}
+                \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+                \Large\bf \etitlestr\footnote[1]
+                        {{\edoctype}, \edepartmentstr, {\edatestr}.}
+                \renewcommand{\thefootnote}{\arabic{footnote}}
+        \end{center}
+        \vspace*{1mm}
+        \begin{center}
+                \large\eauthorstr
+        \end{center}
+        \vspace*{10mm}
+        \begin{center}
+        {\bf Abstract}
+        \end{center}
+        \vspace*{2mm}
+        \par
+        \eabstracttext
+%       \vspace*{5mm}
+        \vfill
+        \begin{flushleft}
+                {\bf Keywords:}
+        \end{flushleft}
+        \ekeywordsstr
+}
+
+
+%%%% 概要のページ出力に使用するマクロ（コマンド）
+\newcommand{\firstabstract}{
+        \newpage
+        \pagenumbering{roman}
+%% \baselineskip,\baselinestrech を退避
+        \newlength\baselineskiptmp
+        \setlength{\baselineskiptmp}{\baselineskip}
+        \edef\baselinestretchtmp{\baselinestretch}
+%% 概要出力
+        \jabstractpage
+%% \baselineskip,\baselinestrech を元に戻す
+        \setlength{\baselineskip}{\baselineskiptmp}
+        \renewcommand{\baselinestretch}{\baselinestretchtmp}
+}
+%
+\newcommand{\secondabstract}{
+        \newpage
+%% \baselineskip,\baselinestrech を退避
+        \newlength\ebaselineskiptmp
+        \setlength{\ebaselineskiptmp}{\baselineskip}
+        \edef\ebaselinestretchtmp{\baselinestretch}
+%% 概要出力
+        \eabstractpage
+%% \baselineskip,\baselinestrech を元に戻す
+        \setlength{\baselineskip}{\ebaselineskiptmp}
+        \renewcommand{\baselinestretch}{\ebaselinestretchtmp}
+}
+%EOF

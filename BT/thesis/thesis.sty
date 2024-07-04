@@ -1,0 +1,224 @@
+% ------------------------------------------------------------------
+% 九州工業大学 情報工学部 情報・通信工学科
+% 卒業論文
+% LaTeXテンプレートファイル
+%
+%					September xx,2016
+%					Takeshi Saito
+% ------------------------------------------------------------------
+
+\typeout{九州工業大学 情報工学部 情報・通信工学科}
+
+% A4 size : (210mm x 297mm)
+
+%\setlength{\topmargin}{-2.4mm}
+%\setlength{\oddsidemargin}{1.4mm}
+%\setlength{\evensidemargin}{0.4mm}
+%\setlength{\headheight}{0mm}
+%\setlength{\headsep}{10mm}
+%\setlength{\textwidth}{154mm}
+%\setlength{\textheight}{230mm}
+%\setlength{\columnsep}{10mm}
+
+% ######## measure #########
+% # mm = 1mm = 2.85pt      #
+% # cm = 10mm = 28.5pt     #
+% # in = 25.4mm = 72.27pt  #
+% # pt = 0.35mm = 1pt      #
+% # em = width of [M]      #
+% # ex = height of [x]     #
+% # zw = width of [Kanji]  #
+% # zh = height of [Kanji] #
+% ##########################
+%
+% 上下
+% TOP    = 1inch + \voffset + \topmargin + \headheight + \headsep
+%        = 1inch + 0pt      + 4pt        + 20pt        + 18pt      (default)
+% BOTTOM = \paperheight - TOP -\textheight
+\setlength{\textheight}{\paperheight}   % 紙面縦幅を本文領域にする（BOTTOM=-TOP）。
+\setlength{\topmargin}{9.6truemm}       % 上の余白を35mm（=1inch+9.6mm）にする。
+\addtolength{\topmargin}{-\headheight}  % 
+\addtolength{\topmargin}{-\headsep}     % ヘッダの分だけ本文領域を移動させる
+\addtolength{\textheight}{-65truemm}    % 下の余白も30mm（BOTTOM=-TOPだから+TOP+30mm）にする。
+
+% 左右
+% LEFT  = 1inch + \hoffset + \oddsidemargin (\evensidemargin)
+%       = 1inch + 0pt      + 0pt            (default)
+% RIGHT = \paperwidth - LEFT - \textwidth
+\setlength{\textwidth}{\paperwidth}     % 紙面横幅を本文領域にする（RIGHT=-LEFT）。
+\setlength{\oddsidemargin}{4.6truemm}   % 左の余白を30mm(=1inch+4.6mm)にする。
+\setlength{\evensidemargin}{4.6truemm}  % 
+\addtolength{\textwidth}{-60truemm}     % 右の余白も30mm（RIGHT=-LEFT）にする。
+
+% 章番号の参照用
+\newcommand{\Chap}[1]{第{\bf \ref{#1}}章}
+\newcommand{\Appendix}[1]{付録{\bf \ref{#1}}}
+% 節番号の参照用
+\newcommand{\Sref}[1]{{\bf \ref{#1}}}
+% 図番号の参照用
+\newcommand{\Fig}[1]{図\ref{#1}}
+% 表番号の参照用
+\newcommand{\Tbl}[1]{表\ref{#1}}
+% 数式番号の参照用
+\newcommand{\Eqn}[1]{式(\ref{#1})}
+
+% ベクトル
+\newcommand{\Vector}[1]{\mbox{\boldmath$#1$}}
+% 絶対値
+\newcommand{\Abs}[1]{|#1|}
+% ノルム
+\newcommand{\Norm}[1]{\|#1\|}
+% コード
+\newcommand{\Code}[1]{{\tt #1}}
+% 単位
+\newcommand{\Unit}[1]{\ensuremath{\mathrm{#1}}} 
+
+% jreport環境においてsubsubsectionまで有効にする
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\headheight 16pt               % ヘッダーの高さ
+\lhead[\thepage]{\leftmark}
+\rhead[\rightmark]{\thepage}
+\chead{}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+%\pagestyle{fancyplain}
+
+%%% 表紙 <Title>
+% 表題
+\def\Title#1{\gdef\@Title{\bf #1}}
+\gdef\@Title{}
+\def\SubTitle#1{\gdef\@SubTitle{\bf #1}}
+\gdef\@SubTitle{}
+\def\eTitle#1{\gdef\@eTitle{\bf #1}}
+\gdef\@eTitle{}
+% 名前
+\def\Name#1{\gdef\@Name{#1}}
+\gdef\@Name{}
+% 学籍番号
+\def\StudentNumber#1{\gdef\@StudentNumber{#1}}
+\gdef\@StudentNumber{}
+% 年月
+\def\TheYear#1{\gdef\@TheYear{#1}}
+\gdef\@TheYear{}
+\def\Year#1{\gdef\@Year{#1}}
+\gdef\@Year{}
+\def\Month#1{\gdef\@Month{#1}}
+\gdef\@Month{}
+% 指導教員
+\def\TeacherName#1{\gdef\@TeacherName{#1}}
+\gdef\@TeacherName{}
+% 専攻
+\def\DepartmentName#1{\gdef\@DepartmentName{#1}}
+\gdef\@DepartmentName{}
+% 分野
+\def\DivisionName#1{\gdef\@DivisionName{#1}}
+\gdef\@DivisionName{}
+
+\def\TitlePage{
+ 
+   % 学部卒業論文の場合
+\newif\ifmaster
+\newif\ifproject
+
+   ~\vspace{20mm}
+   \begin{center}
+   {\LARGE 令和 \@TheYear 年度　卒業論文}
+   \end{center}
+
+   \vspace{15mm}
+   \parbox[c]{145.0mm}
+   {\begin{center} \LARGE \@Title \end{center}}
+   {\begin{center} \Large \@SubTitle \end{center}}
+   \vspace{40mm}
+   \begin{center}
+   {\Large 令和 \@Year 年 \@Month}
+   \end{center}
+   \begin{center}
+   {\Large 九州工業大学　情報工学部
+   \\ \vspace{3mm}
+   情報・通信工学科}
+   \end{center}
+   \vspace{3mm}
+   \begin{center}
+   {\Large \@StudentNumber}
+   \end{center}
+   \begin{center}
+   {\Large \@Name}
+   \end{center}
+ \vspace{20mm}
+  \begin{center}
+  {\Large 指導教員：\@TeacherName}
+  \end{center}
+
+ % タイトルページにページ番号は付けない
+ \thispagestyle{empty}
+ \clearpage
+ ~
+ \thispagestyle{empty}
+ \clearpage
+}
+
+
+%%% 参考文献 <Bibliography>
+\def\thebibliography#1{\chapter*{参考文献\markboth
+ {参 考 文 献}{参 考 文 献}}\list
+ {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \usecounter{enumi}}
+ \def\newblock{\hskip .11em plus .33em minus .07em}
+ \sloppy
+ \sfcode`\.=1000\relax
+}
+\let\endtheBibliography=\endlist
+
+
+%%% 電子情報通信学会用スタイルファイル（ieicej.cls）から引用
+%%## citesort.sty ##%%
+%% from "citesort.sty", a little customized
+\newcount\@minsofar
+\newcount\@min
+\newcount\@cite@temp
+\def\@citex[#1]#2{%
+\if@filesw \immediate \write \@auxout {\string \citation {#2}}\fi
+\@tempcntb\m@ne \let\@h@ld\relax \def\@citea{}%
+\@min\m@ne%
+\@cite{%
+  \@for \@citeb:=#2\do {\@ifundefined {b@\@citeb}%
+    {\@h@ld\@citea\@tempcntb\m@ne{\bfseries ?}%
+    \@warning {Citation `\@citeb ' on page \thepage \space undefined}}%
+{\@minsofar\z@ \@for \@scan@cites:=#2\do {%
+  \@ifundefined{b@\@scan@cites}%
+    {\@cite@temp\m@ne}
+    {\@cite@temp\number\csname b@\@scan@cites \endcsname \relax}%
+\ifnum\@cite@temp > \@min% select the next one to list
+    \ifnum\@minsofar = \z@
+      \@minsofar\number\@cite@temp
+      \edef\@scan@copy{\@scan@cites}\else
+    \ifnum\@cite@temp < \@minsofar
+      \@minsofar\number\@cite@temp
+      \edef\@scan@copy{\@scan@cites}\fi\fi\fi}\@tempcnta\@min
+  \ifnum\@minsofar > \z@ % some more
+    \advance\@tempcnta\@ne
+    \@min\@minsofar
+    \ifnum\@tempcnta=\@minsofar %   Number follows previous--hold on to it
+      \ifx\@h@ld\relax
+        \edef \@h@ld{\@citea\csname b@\@scan@copy\endcsname}%
+      \else \edef\@h@ld{\ifmmode{]～[}\else]～[\fi
+       \csname b@\@scan@copy\endcsname}%
+      \fi
+    \else \@h@ld\@citea\csname b@\@scan@copy\endcsname
+          \let\@h@ld\relax
+  \fi % no more
+\fi}%
+\def\@citea{],\penalty\@highpenalty\,[}}\@h@ld}{#1}}
+%% end of citesort.sty
+
+\def\@cite#1#2{\leavevmode\unskip
+  \ifnum\lastpenalty=\z@\penalty\@highpenalty\fi% highpenalty before
+  \,[{\multiply\@highpenalty 3 #1%             % triple-highpenalties within
+      \if@tempswa,\penalty\@highpenalty\ #2\fi % and before note.
+    }]\spacefactor\@m}
